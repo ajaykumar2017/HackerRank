@@ -18,14 +18,13 @@ public class Save_The_Prisoner {
 	}
 
 	public static int saveThePrisoner(int n, int m, int s) {
-		int res = 0;
-		if (s + m - 1 < n)
-			res = s + m - 1;
-		else if (s + m - 1 > n) {
-			int temp = m % n;
-			int temp1 = m - temp;
-			res = s + m - 1 - temp1;
-		}
-		return res;
+		int a = s+m-1;   
+        if(a>n){
+            if(a%n==0){
+                return n;
+            }
+            return a%n;
+        }
+         return a;
 	}
 }
