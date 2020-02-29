@@ -24,12 +24,10 @@ public class Encryption {
 				if(index<str.length())
 					ch[i][j] = str.charAt(index++);}
 		}
-		for(int i=0; i<row; i++) {
-			for(int j=0; j<column; j++) {
-					System.out.print(ch[i][j]);
-				}
-			System.out.println();
-		}
+		/*
+		 * for(int i=0; i<row; i++) { for(int j=0; j<column; j++) {
+		 * System.out.print(ch[i][j]); } System.out.println(); }
+		 */
 		String result = "";
 		for(int i=0; i<column; i++) {
 			for(int j=0; j<row; j++) {
