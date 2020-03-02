@@ -7,7 +7,6 @@ public class Encryption {
 		Scanner sc = new Scanner(System.in);
 		// input
 		String s = sc.nextLine();
-		encryption(s);
 		String result = encryption(s);
 		System.out.println(result);
 		

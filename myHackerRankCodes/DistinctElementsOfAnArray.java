@@ -26,13 +26,13 @@ public class DistinctElementsOfAnArray {
             // is already printed 
             int j; 
             for (j = 0; j < i; j++) 
-            if (arr.get(i) == arr.get(j)) 
-                break; 
+            	if (arr.get(i) == arr.get(j)) 
+            		break; 
       
             // If not printed earlier,  
             // then print it 
             if (i == j) 
-            distinct.add(arr.get(i)); 
+            	distinct.add(arr.get(i)); 
         }
 		return distinct;
 	}
