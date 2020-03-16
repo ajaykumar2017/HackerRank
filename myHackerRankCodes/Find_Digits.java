@@ -15,19 +15,12 @@ public class Find_Digits {
 		}
 	}
 	
-	private static int findDigits(int n) {
-		List<Integer> digits = new ArrayList<>();
-		while(n>0) {
-			int temp = n%10;
-			digits.add(temp);
-			n=n/10;
-		}
-		
-		//Finding the digits
-		int count =0 ;
-		for(int i=0; i<digits.size(); i++) {
-			if(digits.get(i)!=0) {
-				if(n%digits.get(i)==0)
+	static int findDigits(int n) {
+		String number = String.valueOf(n);
+		int count = 0;
+		for(int i=0; i<number.length(); i++) {
+			if(number.charAt(i)!='0') {
+				if(n%Integer.parseInt(String.valueOf(number.charAt(i)))==0)
 					count++;
 			}
 		}
