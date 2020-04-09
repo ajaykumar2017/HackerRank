@@ -3,34 +3,32 @@ package easy_MyHackerRankCodes;
 import java.util.*;
 
 public class Jumping_On_The_Clouds {
+	private static final Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
 		//input
-		int n = sc.nextInt(); //the total number of clouds
-		int k = sc.nextInt(); //the jump distance
+		int n = scanner.nextInt(); //the total number of clouds
 		int[] c = new int[n];
 		//The second line contains n space-separated binary integers describing 
 		for(int i=0; i<n; i++) {
-			c[i] = sc.nextInt();
+			c[i] = scanner.nextInt();
 		}
 		//output
-		int result = jumpingOnClouds(c, k);
+		int result = jumpingOnClouds(c, n);
 		System.out.println(result);
+		scanner.close();
 	}
 	
-	private static int jumpingOnClouds(int[] c, int k) {
+	private static int jumpingOnClouds(int[] c, int n) {
 		int count = 0;
-		int e = 100;
-		int i = 0;
-		while(i<c.length) {
-			   if(c[i]==1) {
-				   i+=k;
-				   e=e-1-2;
-			   } else {
-				  i+=k;
-				  e-=1;
-			   }
+		for(int i=0; i<n-1; ) {
+			if(i<n-2 && c[i+2]!=1) {
+				count++;
+				i+=2;
+			} else {
+				count++;
+				i++;
+			}
 		}
-		return e;	
+		return count;
 	}
 }
