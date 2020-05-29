@@ -18,15 +18,47 @@ public class Sherlock_And_The_Valid_String {
 	private static String isValid(String s) {
 		String unq = uniqueString(s);
 		int[] freq = frequency(unq, s);
-		int count2 = 0;
-		int count = 0;
-		for (int i = 0; i < freq.length; i++) {
-			if (freq[i] == 2)
-				count2++;
-			if (freq[i] > 1)
-				count++;
+		String result = "NO";
+		Arrays.sort(freq);
+		if (ifAllElementsAreSame(freq)) {
+			result = "YES";
+		} else {
+			if (freq[0] == 1 && freq[1] != 1) {
+				int[] temp = new int[freq.length - 1];
+				for (int i = 1; i < freq.length; i++) {
+					temp[i - 1] = freq[i];
+				}
+				if (ifAllElementsAreSame(temp))
+					result = "YES";
+			} else {
+				for (int i = 0; i < freq.length; i++) {
+					freq[i]++;
+					if (ifAllElementsAreSame(freq))
+						result = "YES";
+					else
+						freq[i]--;
+				}
+				for (int i = 0; i < freq.length; i++) {
+					freq[i]--;
+					if (ifAllElementsAreSame(freq))
+						result = "YES";
+					else
+						freq[i]++;
+				}
+			}
 		}
-		return (count == 1 && count2 == 1) || (count == 0 && count2 == 0) ? "YES" : "NO";
+		return result;
+
+	}
+
+	private static boolean ifAllElementsAreSame(int[] arr) {
+		boolean isSame = true;
+		int first = arr[0];
+		for (int i = 1; i < arr.length; i++) {
+			if (first != arr[i])
+				isSame = false;
+		}
+		return isSame;
 	}
 
 	private static String uniqueString(String s) {
@@ -53,4 +85,5 @@ public class Sherlock_And_The_Valid_String {
 		}
 		return freq;
 	}
+
 }
