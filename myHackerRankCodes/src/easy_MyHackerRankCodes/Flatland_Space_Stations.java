@@ -15,7 +15,7 @@ public class Flatland_Space_Stations {
 			c[i] = scanner.nextInt();
 		}
 		
-		// output
+		//output
 		int result = flatlandSpaceStations(n, c);
 		System.out.println(result);
 	}
